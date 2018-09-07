@@ -1,3 +1,3 @@
 class Game < ApplicationRecord
-  has_many :charactors, dependent: :destroy
+  has_many :characters, dependent: :destroy
 end

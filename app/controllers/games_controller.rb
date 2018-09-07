@@ -9,10 +9,15 @@ class GamesController < ApplicationController
 
   end
 
+  def form
+    @game = Game.new
+    render partial: 'form'
+  end
+
   def create
     @game = Game.new(game_params)
-    if game.save
-      render json: :@game
+    if @game.save
+      render json: @game
     else
       render_error(@game)
     end
@@ -20,7 +25,7 @@ class GamesController < ApplicationController
 
   def update
     if @game.update(game_params)
-      render json: :@game
+      render json: @game
     else
       render_error(@game)
     end

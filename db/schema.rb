@@ -24,15 +24,6 @@ ActiveRecord::Schema.define(version: 2018_09_07_004353) do
     t.index ["game_id"], name: "index_characters_on_game_id"
   end
 
-  create_table "charactors", force: :cascade do |t|
-    t.string "name"
-    t.string "power"
-    t.bigint "game_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["game_id"], name: "index_charactors_on_game_id"
-  end
-
   create_table "games", force: :cascade do |t|
     t.string "name"
     t.string "description"
@@ -41,5 +32,4 @@ ActiveRecord::Schema.define(version: 2018_09_07_004353) do
   end
 
   add_foreign_key "characters", "games"
-  add_foreign_key "charactors", "games"
 end
